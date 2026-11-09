@@ -37,6 +37,7 @@
   <style>
     html { scroll-padding-top: 5.5rem; }
     .node-hotspot { translate: -50% -50%; }
+    .node-tab:last-child { grid-column: 1 / -1; }
     .topic-chip[aria-pressed="true"] {
       border-color: #FFD600;
       color: #FFD600;
@@ -442,6 +443,7 @@
             <button type="button" onclick="selectCarNode(2)" class="node-tab shrink-0 bg-card-bg hover:bg-[#252830] text-gray-300 font-medium text-xs py-2.5 px-3.5 sm:px-2.5 rounded-lg transition-colors text-center">3. Масло АКПП</button>
             <button type="button" onclick="selectCarNode(3)" class="node-tab shrink-0 bg-card-bg hover:bg-[#252830] text-gray-300 font-medium text-xs py-2.5 px-3.5 sm:px-2.5 rounded-lg transition-colors text-center">4. Кузов и окрас</button>
             <button type="button" onclick="selectCarNode(4)" class="node-tab shrink-0 bg-card-bg hover:bg-[#252830] text-gray-300 font-medium text-xs py-2.5 px-3.5 sm:px-2.5 rounded-lg transition-colors text-center">5. Сажевый DPF</button>
+            <button type="button" onclick="selectCarNode(5)" class="node-tab shrink-0 bg-card-bg hover:bg-[#252830] text-gray-300 font-medium text-xs py-2.5 px-3.5 sm:px-2.5 rounded-lg transition-colors text-center">Другая поломка</button>
           </div>
         </div>
 
@@ -883,6 +885,9 @@
                 <button type="button" aria-pressed="false" data-topic="Кузовной ремонт и покраска (от 5 000 ₽)" onclick="toggleTopicChip(this)" class="topic-chip text-xs bg-[#15161A] hover:border-brand/60 border border-card-border text-gray-200 px-3.5 py-2 rounded-xl transition-all active:scale-95">
                   + Кузов и покраска
                 </button>
+                <button type="button" aria-pressed="false" data-topic="Другая поломка" onclick="toggleTopicChip(this)" class="topic-chip text-xs bg-[#15161A] hover:border-brand/60 border border-card-border text-gray-200 px-3.5 py-2 rounded-xl transition-all active:scale-95">
+                  + Другая поломка
+                </button>
               </div>
             </div>
 
@@ -901,6 +906,7 @@
               <div>
                 <label class="block text-xs font-medium text-subtle-gray uppercase tracking-wider mb-1.5" for="user-message">Сообщение мастеру</label>
                 <textarea class="w-full bg-[#15161A] border border-card-border focus:border-brand focus:ring-1 focus:ring-brand rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 transition-colors resize-none" id="user-message" oninput="updateLivePhonePreview()" placeholder="Опишите симптомы или выберите кнопки выше..." rows="3"></textarea>
+                <p aria-live="polite" class="hidden mt-2.5 text-xs text-brand" id="other-problem-hint">Распишите подробнее, что случилось: когда появляется, что слышно, какие ошибки горят.</p>
               </div>
 
               <div class="flex flex-col sm:flex-row gap-3 pt-1">
@@ -1234,6 +1240,19 @@
       ],
       price: 'по запросу',
       shortMsg: 'Чистка сажевого фильтра DPF'
+    },
+    {
+      badge: 'Другое',
+      time: 'после осмотра',
+      title: 'Другая поломка',
+      desc: 'Не нашли свою проблему на схеме? Опишите своими словами, что происходит с машиной, и мастер подскажет, что проверить.',
+      items: [
+        'Расскажите, когда и как проявляется неисправность',
+        'Мастер подскажет, с чего начать проверку',
+        'Стоимость согласуем до начала работ'
+      ],
+      price: 'после осмотра',
+      shortMsg: 'Другая поломка'
     }
   ];
 
@@ -1323,6 +1342,7 @@
     const msgInput = document.getElementById('user-message');
     const ownText = msgInput.value.replace(/^Выбрано:.*\n?/, '');
     msgInput.value = (selectedTopics.length ? 'Выбрано: ' + selectedTopics.join(', ') + '\n' : '') + ownText;
+    document.getElementById('other-problem-hint').classList.toggle('hidden', !selectedTopics.includes('Другая поломка'));
     updateLivePhonePreview();
   }
 
@@ -1419,6 +1439,7 @@
     phoneInput.value = '';
     msgInput.value = '';
     selectedTopics = [];
+    document.getElementById('other-problem-hint').classList.add('hidden');
     document.querySelectorAll('.topic-chip').forEach(el => el.setAttribute('aria-pressed', 'false'));
 
     const screenBody = document.getElementById('phone-screen-body');
