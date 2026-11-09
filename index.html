@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+  <meta name="theme-color" content="#121316"/>
+  <title>АвтоРай — Автосервис полного цикла в Йошкар-Оле</title>
+  <meta name="description" content="Автосервис АвтоРай в Йошкар-Оле: диагностика на вибростенде, компьютерная диагностика, ремонт ходовой и ДВС, аппаратная замена масла АКПП, кузовной ремонт. Сернурский тракт, 4Б/1. Пн–Сб 09:00–19:00."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="ru_RU"/>
+  <meta property="og:title" content="АвтоРай — Автосервис полного цикла в Йошкар-Оле"/>
+  <meta property="og:description" content="Автосервис АвтоРай в Йошкар-Оле: диагностика на вибростенде, компьютерная диагностика, ремонт ходовой и ДВС, аппаратная замена масла АКПП, кузовной ремонт. Сернурский тракт, 4Б/1. Пн–Сб 09:00–19:00."/>
+  <link rel="icon" type="image/jpeg" href="logo-autorai.jpg"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "АвтоРай",
+    "telephone": "+79027358386",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Сернурский тракт, 4Б/1, бокс 2",
+      "addressLocality": "Йошкар-Ола",
+      "postalCode": "424005",
+      "addressCountry": "RU"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 56.65126, "longitude": 47.95515 },
+    "openingHours": "Mo-Sa 09:00-19:00",
+    "priceRange": "от 500 ₽"
+  }
+  </script>
+  <style>
+    html { scroll-padding-top: 5.5rem; }
+    .node-hotspot { translate: -50% -50%; }
+    .topic-chip[aria-pressed="true"] {
+      border-color: #FFD600;
+      color: #FFD600;
+      background-color: rgba(255, 214, 0, 0.1);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto !important; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+    body {
+      background-color: #121316;
+      color: #E3E2E6;
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      background-image:
+        radial-gradient(circle at 85% 10%, rgba(255, 214, 0, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 10% 35%, rgba(255, 214, 0, 0.04) 0%, transparent 45%);
+    }
+    .tech-grid {
+      background-size: 36px 36px;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    }
+    /* Hide scrollbar for mobile horizontal snap carousels */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    @keyframes msgPop {
+      0% {
+        opacity: 0;
+        transform: translateY(14px) scale(0.96);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    .animate-msg {
+      animation: msgPop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes pulseDot {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+    .typing-dot:nth-child(1) { animation: pulseDot 1.4s infinite 0s; }
+    .typing-dot:nth-child(2) { animation: pulseDot 1.4s infinite 0.2s; }
+    .typing-dot:nth-child(3) { animation: pulseDot 1.4s infinite 0.4s; }
+
+    /* Интерактивный лазерный сканер авто */
+    @keyframes scanSweep {
+      0% { left: 8%; }
+      100% { left: 90%; }
+    }
+    .scan-line {
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, #FFD600, transparent);
+      box-shadow: 0 0 18px 2px rgba(255, 214, 0, 0.65);
+      animation: scanSweep 4.2s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes pingRing {
+      0% { transform: scale(0.9); opacity: 0.85; }
+      100% { transform: scale(1.75); opacity: 0; }
+    }
+    .node-hotspot::after {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 9999px;
+      border: 1.5px solid #FFD600;
+      animation: pingRing 2s infinite;
+    }
+    .node-hotspot.active {
+      background-color: #FFD600;
+      color: #121316;
+      transform: scale(1.18);
+      box-shadow: 0 0 24px rgba(255, 214, 0, 0.85);
+    }
+
+    /* Бегущая строка марок авто (Marquee) */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 28s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Быстрый приборный прелоадер (0.75 сек) */
+    @keyframes preloaderBar {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+    @keyframes ringSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .preloader-progress {
+      animation: preloaderBar 0.68s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .preloader-ring {
+      animation: ringSpin 3s linear infinite;
+    }
+    .preloader-hide {
+      opacity: 0;
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="bg-charcoal text-white selection:bg-brand selection:text-black antialiased pb-20 lg:pb-0">
+
+<!-- FAST INSTRUMENT CLUSTER PRELOADER (0.75s) -->
+<div class="fixed inset-0 z-[100] bg-[#121316] tech-grid flex flex-col items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] select-none" id="app-preloader" onclick="dismissPreloader()">
+  <div class="relative flex items-center justify-center mb-6">
+    <!-- Ambient Yellow Glow -->
+    <div class="absolute w-32 h-32 rounded-full bg-brand/20 blur-2xl"></div>
+    <!-- Tachometer Dashed Ring -->
+    <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full border-2 border-dashed border-brand/60 preloader-ring absolute"></div>
+    <!-- Real Logo Emblem -->
+    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-brand shadow-[0_0_30px_rgba(255,214,0,0.4)] relative z-10 bg-charcoal">
+      <img alt="АвтоРай" class="w-full h-full object-cover scale-110" src="logo-autorai.jpg"/>
+    </div>
+  </div>
+
+  <!-- Brand & Telemetry Readout -->
+  <div class="flex items-center gap-2 mb-3">
+    <span class="font-heading text-xl sm:text-2xl font-bold uppercase tracking-widest text-white">Авто<span class="text-brand">Рай</span></span>
+    <span class="text-[10px] font-heading uppercase tracking-wider bg-brand/15 text-brand border border-brand/40 px-2 py-0.5 rounded">Йошкар-Ола</span>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="w-52 sm:w-60 h-1.5 bg-[#22242A] rounded-full overflow-hidden border border-[#2A2D35] mb-2">
+    <div class="h-full bg-brand rounded-full shadow-[0_0_12px_#FFD600] preloader-progress"></div>
+  </div>
+
+  <div class="flex items-center justify-between w-52 sm:w-60 text-[11px] font-mono text-subtle-gray">
+    <span>ЗАПУСК СИСТЕМЫ...</span>
+    <span class="text-brand font-bold" id="preloader-percent">0%</span>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#121316]/95 backdrop-blur-md border-b border-[#2A2D35]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+    <!-- Logo with real enhanced emblem -->
+    <a class="flex items-center gap-3 group" href="#">
+      <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-brand/80 shadow-[0_0_15px_rgba(255,214,0,0.25)] group-hover:scale-105 transition-transform shrink-0 bg-charcoal">
+        <img alt="АвтоРай логотип" class="w-full h-full object-cover scale-110" src="logo-autorai.jpg"/>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-heading text-lg sm:text-xl font-bold text-white tracking-wide uppercase leading-tight">Авто<span class="text-brand">Рай</span></span>
+        <span class="hidden min-[420px]:block text-[10px] sm:text-[11px] text-subtle-gray tracking-wider uppercase whitespace-nowrap">Йошкар-Ола • Техцентр</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation links -->
+    <nav class="hidden xl:flex items-center gap-7 text-sm font-medium text-gray-300 whitespace-nowrap">
+      <a class="hover:text-brand transition-colors" href="#scanner">Схема-диагностика</a>
+      <a class="hover:text-brand transition-colors" href="#advantages">Преимущества</a>
+      <a class="hover:text-brand transition-colors" href="#services">Услуги и цены</a>
+      <a class="hover:text-brand transition-colors" href="#process">Как работаем</a>
+      <a class="hover:text-brand transition-colors" href="#reviews">Отзывы</a>
+      <a class="hover:text-brand transition-colors" href="#contacts">Контакты</a>
+    </nav>
+
+    <!-- Right Contacts & Mobile Menu Trigger -->
+    <div class="flex items-center gap-2.5 sm:gap-4">
+      <div class="hidden sm:flex flex-col text-right">
+        <a class="text-sm font-semibold text-white hover:text-brand transition-colors whitespace-nowrap" href="tel:+79027358386">+7 (902) 735-83-86</a>
+        <span class="text-xs text-subtle-gray whitespace-nowrap">Пн–Сб 09:00–19:00</span>
+      </div>
+      <a class="hidden md:inline-flex xl:hidden items-center gap-1.5 bg-card-bg hover:border-brand/50 border border-card-border text-white text-xs font-semibold px-3.5 py-2.5 rounded-lg transition-colors" href="https://max.ru/u/f9LHodD0cOICzUKAzID4bwpirEmxcAWHRI9Ustr6lE4d8GrX6L0LTCjToiI" rel="noopener" target="_blank" title="Написать нам в MAX">
+        <span class="w-2 h-2 rounded-full bg-brand"></span>
+        <span>MAX</span>
+      </a>
+      <a class="bg-brand hover:bg-brand-hover text-black font-bold text-xs sm:text-sm px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-lg transition-colors tracking-wide uppercase whitespace-nowrap" href="#order-service">
+        Записаться
+      </a>
+      <!-- Mobile Burger Button -->
+      <button aria-controls="mobile-drawer" aria-expanded="false" aria-label="Открыть меню" id="mobile-menu-btn" class="xl:hidden w-10 h-10 rounded-lg bg-card-bg border border-card-border flex items-center justify-center text-white active:scale-95 transition-transform" onclick="toggleMobileMenu()">
+        <span aria-hidden="true" class="material-symbols-outlined text-2xl" id="mobile-menu-icon">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile App-Style Dropdown Drawer -->
+  <div class="hidden xl:hidden bg-[#15161A] border-b border-card-border px-5 py-5 space-y-4 shadow-2xl" id="mobile-drawer">
+    <div class="flex items-center justify-between bg-card-bg border border-card-border rounded-xl p-3">
+      <div class="flex items-center gap-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-brand"></span>
+        <span class="text-xs font-medium text-white">Режим работы: <strong class="text-brand">Пн–Сб</strong></span>
+      </div>
+      <span class="text-[11px] text-subtle-gray">09:00–19:00</span>
+    </div>
+    <nav class="grid grid-cols-2 gap-2 text-sm font-medium">
+      <a class="bg-card-bg border border-card-border rounded-xl px-3.5 py-2.5 text-white hover:border-brand/50" href="#scanner" onclick="toggleMobileMenu()">🔍 Схема авто</a>
+      <a class="bg-card-bg border border-card-border rounded-xl px-3.5 py-2.5 text-white hover:border-brand/50" href="#services" onclick="toggleMobileMenu()">🛠 Услуги и цены</a>
+      <a class="bg-card-bg border border-card-border rounded-xl px-3.5 py-2.5 text-white hover:border-brand/50" href="#advantages" onclick="toggleMobileMenu()">⭐ Преимущества</a>
+      <a class="bg-card-bg border border-card-border rounded-xl px-3.5 py-2.5 text-white hover:border-brand/50" href="#process" onclick="toggleMobileMenu()">📋 Как работаем</a>
+      <a class="bg-card-bg border border-card-border rounded-xl px-3.5 py-2.5 text-white hover:border-brand/50" href="#reviews" onclick="toggleMobileMenu()">💬 Отзывы (4.9★)</a>
+      <a class="bg-card-bg border border-card-border rounded-xl px-3.5 py-2.5 text-white hover:border-brand/50" href="#contacts" onclick="toggleMobileMenu()">📍 Карта и адрес</a>
+    </nav>
+    <div class="pt-2 border-t border-card-border flex items-center justify-between gap-2">
+      <a class="flex-1 bg-brand text-black font-bold text-xs uppercase py-3 rounded-xl text-center" href="https://max.ru/u/f9LHodD0cOICzUKAzID4bwpirEmxcAWHRI9Ustr6lE4d8GrX6L0LTCjToiI" rel="noopener" target="_blank">Написать в MAX</a>
+      <a class="flex-1 bg-card-bg border border-card-border text-white font-semibold text-xs py-3 rounded-xl text-center" href="tel:+79027358386">+7 (902) 735-83-86</a>
+    </div>
+  </div>
+</header>
+
+<main class="w-full pt-16 sm:pt-20">
+  <!-- 1. HERO SECTION (Mobile-First Optimized) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16 lg:py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <!-- Left Column -->
+      <div class="lg:col-span-6 flex flex-col gap-5 sm:gap-6">
+        <!-- Live Box Status Pill (looks like a native mobile widget) -->
+        <div class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 bg-card-bg border border-card-border rounded-full w-fit text-xs text-gray-200">
+          <span class="w-2 h-2 rounded-full bg-brand"></span>
+          <span>Пн–Сб 09:00–19:00 •</span>
+          <span class="text-brand font-semibold">★ 4.9 в 2ГИС</span>
+        </div>
+
+        <h1 class="font-heading text-3xl sm:text-5xl lg:text-[54px] font-bold text-white uppercase tracking-tight leading-[1.12]">
+          Профессиональный ремонт и обслуживание авто <span class="text-brand">в Йошкар-Оле</span> с гарантией на работы
+        </h1>
+
+        <p class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-xl">
+          Точная диагностика на вибростенде за 30 минут, честная смета без навязанных услуг и скрытых переплат. Ремонтируем любые легковые авто от ТО до кузовного цеха.
+        </p>
+
+        <!-- Compact 3-Column Stats (even on mobile phones!) -->
+        <div class="grid grid-cols-3 gap-2 sm:gap-3 pt-1">
+          <div class="bg-card-bg border border-card-border rounded-xl p-2.5 sm:p-3.5">
+            <div class="text-brand font-heading font-bold text-base sm:text-lg leading-tight">★ 4.9 / 5</div>
+            <div class="text-[11px] sm:text-xs text-subtle-gray mt-1 leading-tight">35 оценок в 2ГИС</div>
+          </div>
+          <div class="bg-card-bg border border-card-border rounded-xl p-2.5 sm:p-3.5">
+            <div class="text-white font-heading font-bold text-base sm:text-lg leading-tight">от 500 ₽</div>
+            <div class="text-[11px] sm:text-xs text-subtle-gray mt-1 leading-tight">Диагностика 30 мин</div>
+          </div>
+          <div class="bg-card-bg border border-card-border rounded-xl p-2.5 sm:p-3.5">
+            <div class="text-brand font-heading font-bold text-base sm:text-lg leading-tight">до 12 мес.</div>
+            <div class="text-[11px] sm:text-xs text-subtle-gray mt-1 leading-tight">Гарантия на работы</div>
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1">
+          <a class="bg-brand hover:bg-brand-hover active:scale-[0.99] text-black font-bold text-sm uppercase px-6 py-4 rounded-xl text-center transition-all shadow-[0_10px_30px_rgba(255,214,0,0.22)] flex items-center justify-center gap-2" href="#order-service">
+            <span>Записаться на диагностику</span>
+            <span aria-hidden="true" class="material-symbols-outlined text-lg">arrow_forward</span>
+          </a>
+          <a class="border border-card-border bg-card-bg hover:bg-[#252830] active:scale-[0.99] text-white font-medium text-sm px-6 py-3.5 sm:py-4 rounded-xl text-center transition-all flex items-center justify-center gap-2" href="https://max.ru/u/f9LHodD0cOICzUKAzID4bwpirEmxcAWHRI9Ustr6lE4d8GrX6L0LTCjToiI" rel="noopener" target="_blank">
+            <span aria-hidden="true" class="material-symbols-outlined text-brand text-lg">forum</span>
+            <span>Написать мастеру в MAX</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column (High-Res Workshop Photo + Brand Stamp) -->
+      <div class="lg:col-span-6">
+        <div class="relative rounded-2xl overflow-hidden border border-card-border bg-card-bg shadow-2xl group">
+          <img alt="Автомобиль на подъёмнике в автосервисе" fetchpriority="high" class="w-full h-[280px] sm:h-[380px] lg:h-[460px] object-cover group-hover:scale-[1.02] transition-transform duration-500" src="hero-workshop.jpg"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#121316]/90 via-transparent to-transparent pointer-events-none"></div>
+
+          <!-- Top-Right Original Brand Logo Emblem -->
+          <div class="absolute top-3 right-3 sm:top-4 sm:right-4 bg-charcoal/85 backdrop-blur-md border border-card-border p-1.5 rounded-full shadow-xl flex items-center gap-2 pr-3.5">
+            <img alt="Эмблема АвтоРай" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover scale-110 border border-brand" src="logo-autorai.jpg"/>
+            <div class="flex flex-col">
+              <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-brand leading-none">Сернурский тр. 4Б/1</span>
+              <span class="text-[11px] sm:text-xs font-semibold text-white leading-tight mt-0.5">Техцентр • Бокс №2</span>
+            </div>
+          </div>
+
+          <!-- Bottom-Left Live Status & Vibrostand Badge -->
+          <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-center justify-between gap-2">
+            <div class="min-w-0 bg-charcoal/90 backdrop-blur-md border border-card-border px-3 sm:px-4 py-2 rounded-xl text-[11px] sm:text-xs font-medium text-white flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand animate-pulse shrink-0"></span>
+              <span class="truncate">Вибростенд и подъёмники</span>
+            </div>
+            <a class="bg-brand hover:bg-brand-hover text-black font-bold text-[11px] sm:text-xs uppercase px-3 py-2 rounded-xl transition-colors shrink-0" href="#scanner">
+              Показать на схеме ↓
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE BRANDS BAR (Динамичная бегущая лента марок — отлично смотрится на телефонах) -->
+  <div class="border-y border-card-border bg-[#15161A] py-3.5 overflow-hidden select-none">
+    <div class="marquee-track items-center gap-8 sm:gap-12 pr-8 sm:pr-12 text-xs sm:text-sm font-heading uppercase tracking-widest text-subtle-gray">
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> TOYOTA</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> KIA</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> HYUNDAI</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> VOLKSWAGEN</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> SKODA</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> BMW</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> FORD</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> NISSAN</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> MAZDA</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> RENAULT</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> LADA</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> GEELY</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> CHERY</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> HAVAL</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> TOYOTA</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> KIA</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> HYUNDAI</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> VOLKSWAGEN</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> SKODA</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> BMW</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> FORD</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> NISSAN</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> MAZDA</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> RENAULT</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> LADA</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> GEELY</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> CHERY</span>
+      <span class="flex items-center gap-2"><span class="text-brand">●</span> HAVAL</span>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE CAR SCANNER & NODE SELECTOR (Удобно нажимать пальцем на телефоне) -->
+  <section class="py-14 sm:py-20 bg-[#15171B] tech-grid relative overflow-hidden" id="scanner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-8 sm:mb-10">
+        <div>
+          <span class="text-xs uppercase tracking-wider text-brand font-semibold block mb-1.5">Интерактивная диагностика</span>
+          <h2 class="font-heading text-2xl sm:text-4xl uppercase font-bold text-white">
+            Что беспокоит? <span class="text-brand">Нажмите на схеме</span>
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-subtle-gray max-w-md">
+          Выберите проблемную зону одним касанием — покажем регламент проверки, точное время и передадим задачу мастеру.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+        <!-- Left: Interactive Car Radar / HUD Stage (7 cols) -->
+        <div class="lg:col-span-7 bg-charcoal border border-card-border rounded-card p-4 sm:p-8 relative overflow-hidden flex flex-col justify-between">
+          <div class="flex items-center justify-between text-xs text-subtle-gray border-b border-card-border pb-3">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-brand"></span>
+              <span class="font-heading uppercase tracking-wider text-white">Схема осмотра «АвтоРай»</span>
+            </div>
+            <span class="text-brand font-medium">Коснитесь точки 1–5</span>
+          </div>
+
+          <!-- Car SVG & Large Touch-Friendly Hotspots -->
+          <div class="my-auto py-6 sm:py-8 flex items-center justify-center">
+            <div class="relative w-full max-w-[540px]">
+            <div class="scan-line"></div>
+
+            <!-- Hotspot 1: ДВС и форсунки -->
+            <button type="button" onclick="selectCarNode(0)" class="node-hotspot active absolute w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-charcoal border-2 border-brand text-brand font-heading font-bold text-xs sm:text-sm flex items-center justify-center transition-all z-20" style="left: 14.6%; top: 47.7%;" aria-label="Точка 1: Двигатель, форсунки и ЭБУ" title="Двигатель, форсунки и ЭБУ">1</button>
+            <!-- Hotspot 2: Подвеска и вибростенд -->
+            <button type="button" onclick="selectCarNode(1)" class="node-hotspot absolute w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-charcoal border-2 border-brand text-brand font-heading font-bold text-xs sm:text-sm flex items-center justify-center transition-all z-20" style="left: 24.1%; top: 82.6%;" aria-label="Точка 2: Ходовая часть и вибростенд" title="Ходовая часть и вибростенд">2</button>
+            <!-- Hotspot 3: АКПП и масла -->
+            <button type="button" onclick="selectCarNode(2)" class="node-hotspot absolute w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-charcoal border-2 border-brand text-brand font-heading font-bold text-xs sm:text-sm flex items-center justify-center transition-all z-20" style="left: 47.8%; top: 65.6%;" aria-label="Точка 3: Аппаратная замена масла АКПП" title="Аппаратная замена масла АКПП">3</button>
+            <!-- Hotspot 4: Кузовной цех и покраска -->
+            <button type="button" onclick="selectCarNode(3)" class="node-hotspot absolute w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-charcoal border-2 border-brand text-brand font-heading font-bold text-xs sm:text-sm flex items-center justify-center transition-all z-20" style="left: 69.1%; top: 35.8%;" aria-label="Точка 4: Кузовной ремонт и покраска" title="Кузовной ремонт и покраска">4</button>
+            <!-- Hotspot 5: Сажевый фильтр DPF и выхлоп -->
+            <button type="button" onclick="selectCarNode(4)" class="node-hotspot absolute w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-charcoal border-2 border-brand text-brand font-heading font-bold text-xs sm:text-sm flex items-center justify-center transition-all z-20" style="left: 86.9%; top: 77.5%;" aria-label="Точка 5: Сажевые фильтры DPF, сварка и антикор" title="Сажевые фильтры DPF, сварка и антикор">5</button>
+
+            <!-- Crisp Technical Car Silhouette SVG -->
+            <svg class="w-full max-w-[540px] h-auto drop-shadow-[0_16px_30px_rgba(0,0,0,0.85)]" viewBox="0 0 520 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="260" cy="176" rx="225" ry="12" fill="rgba(255, 214, 0, 0.08)"/>
+              <path d="M38 136 L66 98 L152 86 L222 48 L358 48 L428 84 L474 102 L482 140 L446 152 L58 152 L38 136 Z" fill="#1A1C22" stroke="#FFD600" stroke-width="2.2" stroke-opacity="0.85"/>
+              <path d="M164 84 L228 54 L348 54 L410 84 Z" fill="rgba(255, 214, 0, 0.1)" stroke="#FFD600" stroke-width="1.2" stroke-opacity="0.6"/>
+              <path d="M88 120 H425 M145 104 H375" stroke="rgba(255, 214, 0, 0.25)" stroke-width="1" stroke-dasharray="6 4"/>
+              <path d="M46 122 L78 110 L72 126 Z" fill="#FFD600"/>
+              <path d="M462 104 L480 110 L476 124 L458 118 Z" fill="#FF441F"/>
+              <circle cx="130" cy="148" r="33" fill="#121316" stroke="#9E9EA7" stroke-width="3"/>
+              <circle cx="130" cy="148" r="21" stroke="#FFD600" stroke-width="1.5" stroke-dasharray="8 4"/>
+              <circle cx="130" cy="148" r="7" fill="#FFD600"/>
+              <circle cx="395" cy="148" r="33" fill="#121316" stroke="#9E9EA7" stroke-width="3"/>
+              <circle cx="395" cy="148" r="21" stroke="#FFD600" stroke-width="1.5" stroke-dasharray="8 4"/>
+              <circle cx="395" cy="148" r="7" fill="#FFD600"/>
+            </svg>
+            </div>
+          </div>
+
+          <!-- Horizontal scrollable node buttons on mobile -->
+          <div class="flex sm:grid sm:grid-cols-5 gap-2 pt-3 border-t border-card-border overflow-x-auto no-scrollbar">
+            <button type="button" onclick="selectCarNode(0)" class="node-tab shrink-0 bg-brand text-black font-semibold text-xs py-2.5 px-3.5 sm:px-2.5 rounded-lg transition-colors text-center">1. Двигатель</button>
+            <button type="button" onclick="selectCarNode(1)" class="node-tab shrink-0 bg-card-bg hover:bg-[#252830] text-gray-300 font-medium text-xs py-2.5 px-3.5 sm:px-2.5 rounded-lg transition-colors text-center">2. Вибростенд</button>
+            <button type="button" onclick="selectCarNode(2)" class="node-tab shrink-0 bg-card-bg hover:bg-[#252830] text-gray-300 font-medium text-xs py-2.5 px-3.5 sm:px-2.5 rounded-lg transition-colors text-center">3. Масло АКПП</button>
+            <button type="button" onclick="selectCarNode(3)" class="node-tab shrink-0 bg-card-bg hover:bg-[#252830] text-gray-300 font-medium text-xs py-2.5 px-3.5 sm:px-2.5 rounded-lg transition-colors text-center">4. Кузов и окрас</button>
+            <button type="button" onclick="selectCarNode(4)" class="node-tab shrink-0 bg-card-bg hover:bg-[#252830] text-gray-300 font-medium text-xs py-2.5 px-3.5 sm:px-2.5 rounded-lg transition-colors text-center">5. Сажевый DPF</button>
+          </div>
+        </div>
+
+        <!-- Right: Selected Node Details Card (5 cols) -->
+        <div class="lg:col-span-5 bg-card-bg border border-brand/40 rounded-card p-5 sm:p-8 flex flex-col justify-between shadow-xl">
+          <div class="space-y-4 sm:space-y-5">
+            <div class="flex items-center justify-between">
+              <span class="bg-brand/15 text-brand border border-brand/30 text-xs font-bold uppercase px-3 py-1 rounded-full" id="scanner-badge">Моторный отсек</span>
+              <span class="text-xs text-subtle-gray flex items-center gap-1">
+                <span aria-hidden="true" class="material-symbols-outlined text-sm text-brand">schedule</span>
+                <span id="scanner-time">~ 30–45 мин</span>
+              </span>
+            </div>
+
+            <h3 class="font-heading text-xl sm:text-3xl uppercase font-bold text-white" id="scanner-title">
+              Двигатель, форсунки и компьютерная диагностика
+            </h3>
+
+            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed" id="scanner-desc">
+              Чтение параметров всех электронных блоков, эндоскопия цилиндров, стендовая промывка форсунок, эко-чистка и капитальный ремонт ДВС с гарантией.
+            </p>
+
+            <!-- Checklist of included checks -->
+            <div class="bg-[#15161A] border border-card-border rounded-xl p-3.5 sm:p-4 space-y-2.5" id="scanner-list">
+              <div class="flex items-center gap-2.5 text-xs text-gray-200">
+                <span class="text-brand font-bold">✓</span>
+                <span>Считывание кодов ошибок и проверка датчиков в реальном времени</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-gray-200">
+                <span class="text-brand font-bold">✓</span>
+                <span>Ультразвуковая и стендовая чистка топливных форсунок</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-gray-200">
+                <span class="text-brand font-bold">✓</span>
+                <span>Честная дефектовка без навязывания лишних запчастей</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-5 mt-5 border-t border-card-border flex items-center justify-between gap-4">
+            <div>
+              <span class="text-[11px] sm:text-xs text-subtle-gray block">Ориентировочная цена:</span>
+              <span class="font-heading text-2xl sm:text-3xl font-bold text-brand" id="scanner-price">от 500 ₽</span>
+            </div>
+            <a class="bg-brand hover:bg-brand-hover active:scale-95 text-black font-bold text-xs uppercase px-4 sm:px-5 py-3.5 rounded-xl transition-all text-center flex items-center justify-center gap-1.5" href="#order-service" id="scanner-cta-btn" onclick="sendScannerNodeToPhone()">
+              <span>Выбрать и записаться</span>
+              <span aria-hidden="true" class="material-symbols-outlined text-base">arrow_downward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ADVANTAGES (без цифр, со свайпом на мобильных или компактной сеткой) -->
+  <section class="border-t border-card-border py-14 sm:py-20 bg-charcoal" id="advantages">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-8 sm:mb-12">
+        <span class="text-xs uppercase tracking-wider text-brand font-semibold block mb-2">Наши стандарты</span>
+        <h2 class="font-heading text-2xl sm:text-4xl uppercase font-bold text-white">
+          Преимущества автосервиса <span class="text-brand">«АвтоРай»</span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <!-- Card 1 -->
+        <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 flex flex-col justify-between hover:border-brand/40 transition-colors">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-[#252830] border border-card-border flex items-center justify-center mb-4">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl">troubleshoot</span>
+            </div>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white mb-2">
+              Диагностика на вибростенде
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Находим реальную причину стука и люфта подвески под динамической нагрузкой, а не меняем исправные детали наугад.
+            </p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 flex flex-col justify-between hover:border-brand/40 transition-colors">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-[#252830] border border-card-border flex items-center justify-center mb-4">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl">home_repair_service</span>
+            </div>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white mb-2">
+              Полный цикл работ в одном месте
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Собственный слесарный цех, опытные мотористы, автоэлектрика и малярный цех. Никаких подрядчиков и посредников.
+            </p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 flex flex-col justify-between hover:border-brand/40 transition-colors">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-[#252830] border border-card-border flex items-center justify-center mb-4">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl">precision_manufacturing</span>
+            </div>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white mb-2">
+              Специализированное оборудование
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Аппаратная замена масла в АКПП, проточка дисков без снятия, стенды промывки сажевых фильтров DPF и форсунок.
+            </p>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 flex flex-col justify-between hover:border-brand/40 transition-colors">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-[#252830] border border-card-border flex items-center justify-center mb-4">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl">verified</span>
+            </div>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white mb-2">
+              Честная цена до начала работ
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Фиксируем смету до старта. Согласовываем все нюансы. Старые заменённые запчасти обязательно отдаём клиенту.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SERVICES (3x2 Grid) -->
+  <section class="border-t border-card-border py-14 sm:py-20 bg-charcoal" id="services">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-8 sm:mb-12">
+        <div>
+          <span class="text-xs uppercase tracking-wider text-brand font-semibold block mb-2">Каталог услуг</span>
+          <h2 class="font-heading text-2xl sm:text-4xl uppercase font-bold text-white">
+            Основные направления ремонта
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-subtle-gray max-w-md">
+          Нажмите «Записаться» на любой услуге — она автоматически добавится в ваше сообщение мастеру
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <!-- Card 1 -->
+        <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 flex flex-col justify-between hover:border-brand/40 transition-colors">
+          <div class="flex flex-col gap-3">
+            <span aria-hidden="true" class="material-symbols-outlined text-brand text-3xl">laptop_mac</span>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white">
+              Компьютерная и электронная диагностика
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Чтение и сброс ошибок, глубокая диагностика датчиков и блоков управления, адаптация систем.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-card-border flex items-center justify-between">
+            <div>
+              <span class="text-xs text-subtle-gray block">Стоимость:</span>
+              <span class="font-heading text-2xl font-bold text-brand">от 500 ₽</span>
+            </div>
+            <a class="bg-[#2A2D35] hover:bg-brand hover:text-black active:scale-95 text-white text-xs font-bold uppercase px-4 py-2.5 rounded-lg transition-all" href="#order-service" onclick="prefillService('Компьютерная диагностика (от 500 ₽)')">
+              Записаться
+            </a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-card-bg border border-brand/50 rounded-card p-5 sm:p-6 flex flex-col justify-between relative shadow-lg">
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-3xl">speed</span>
+              <span class="bg-brand text-black text-[10px] font-bold uppercase px-2 py-0.5 rounded">Популярно</span>
+            </div>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white">
+              Комплексная диагностика (вкл. вибростенд)
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Полная проверка ходовой на стенде, детальный осмотр тормозов, рулевого управления и спецжидкостей.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-card-border flex items-center justify-between">
+            <div>
+              <span class="text-xs text-subtle-gray block">Стоимость:</span>
+              <span class="font-heading text-2xl font-bold text-brand">от 700 ₽</span>
+            </div>
+            <a class="bg-brand hover:bg-brand-hover active:scale-95 text-black text-xs font-bold uppercase px-4 py-2.5 rounded-lg transition-all" href="#order-service" onclick="prefillService('Комплексная диагностика на вибростенде (от 700 ₽)')">
+              Записаться
+            </a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 flex flex-col justify-between hover:border-brand/40 transition-colors">
+          <div class="flex flex-col gap-3">
+            <span aria-hidden="true" class="material-symbols-outlined text-brand text-3xl">build</span>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white">
+              Диагностика и ремонт ходовой
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Замена сайлентблоков, амортизаторов, рычагов, проточка тормозных дисков без демонтажа.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-card-border flex items-center justify-between">
+            <div>
+              <span class="text-xs text-subtle-gray block">Стоимость:</span>
+              <span class="font-heading text-2xl font-bold text-brand">от 500 ₽</span>
+            </div>
+            <a class="bg-[#2A2D35] hover:bg-brand hover:text-black active:scale-95 text-white text-xs font-bold uppercase px-4 py-2.5 rounded-lg transition-all" href="#order-service" onclick="prefillService('Ремонт ходовой (от 500 ₽)')">
+              Записаться
+            </a>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 flex flex-col justify-between hover:border-brand/40 transition-colors">
+          <div class="flex flex-col gap-3">
+            <span aria-hidden="true" class="material-symbols-outlined text-brand text-3xl">oil_barrel</span>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white">
+              Аппаратная замена масла в АКПП и ДВС
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              100% вытеснение отработанной трансмиссионной жидкости со специализированной промывкой.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-card-border flex items-center justify-between">
+            <div>
+              <span class="text-xs text-subtle-gray block">Стоимость:</span>
+              <span class="font-heading text-2xl font-bold text-brand">от 2 000 ₽</span>
+            </div>
+            <a class="bg-[#2A2D35] hover:bg-brand hover:text-black active:scale-95 text-white text-xs font-bold uppercase px-4 py-2.5 rounded-lg transition-all" href="#order-service" onclick="prefillService('Аппаратная замена масла в АКПП (от 2 000 ₽)')">
+              Записаться
+            </a>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 flex flex-col justify-between hover:border-brand/40 transition-colors">
+          <div class="flex flex-col gap-3">
+            <span aria-hidden="true" class="material-symbols-outlined text-brand text-3xl">settings</span>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white">
+              Ремонт ДВС, эко-чистка и форсунки
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Капитальный и частичный ремонт моторов, чистка сажевых фильтров DPF и промывка форсунок.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-card-border flex items-center justify-between">
+            <div>
+              <span class="text-xs text-subtle-gray block">Стоимость:</span>
+              <span class="font-heading text-2xl font-bold text-brand">от 3 000 ₽</span>
+            </div>
+            <a class="bg-[#2A2D35] hover:bg-brand hover:text-black active:scale-95 text-white text-xs font-bold uppercase px-4 py-2.5 rounded-lg transition-all" href="#order-service" onclick="prefillService('Ремонт ДВС / промывка форсунок (от 3 000 ₽)')">
+              Записаться
+            </a>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 flex flex-col justify-between hover:border-brand/40 transition-colors">
+          <div class="flex flex-col gap-3">
+            <span aria-hidden="true" class="material-symbols-outlined text-brand text-3xl">format_paint</span>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white">
+              Кузовной ремонт и покраска
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Восстановление заводской геометрии на стапеле, локальный окрас и качественная полировка кузова.
+            </p>
+          </div>
+          <div class="pt-5 mt-5 border-t border-card-border flex items-center justify-between">
+            <div>
+              <span class="text-xs text-subtle-gray block">Стоимость:</span>
+              <span class="font-heading text-2xl font-bold text-brand">от 5 000 ₽</span>
+            </div>
+            <a class="bg-[#2A2D35] hover:bg-brand hover:text-black active:scale-95 text-white text-xs font-bold uppercase px-4 py-2.5 rounded-lg transition-all" href="#order-service" onclick="prefillService('Кузовной ремонт и покраска (от 5 000 ₽)')">
+              Записаться
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. HOW WE WORK (без цифр) -->
+  <section class="border-t border-card-border py-14 sm:py-20 bg-charcoal" id="process">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+        <span class="text-xs uppercase tracking-wider text-brand font-semibold block mb-2">Прозрачный регламент</span>
+        <h2 class="font-heading text-2xl sm:text-4xl uppercase font-bold text-white mb-3">
+          Как мы работаем
+        </h2>
+        <p class="text-xs sm:text-sm text-subtle-gray">
+          Каждый автомобиль проходит понятную технологическую цепочку с прозрачной фиксацией стоимости.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <!-- Step 1 -->
+        <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 flex flex-col justify-between hover:border-brand/40 transition-colors">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-[#252830] border border-card-border flex items-center justify-center mb-4">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl">call</span>
+            </div>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white mb-2">
+              Заявка или звонок
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Связываетесь с мастером-приёмщиком на сайте или в MAX, выбираем удобное время. Приезжаете точно к назначенному часу без очередей.
+            </p>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 flex flex-col justify-between hover:border-brand/40 transition-colors">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-[#252830] border border-card-border flex items-center justify-center mb-4">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl">fact_check</span>
+            </div>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white mb-2">
+              Точная диагностика и смета
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Осматриваем автомобиль на вибростенде и подъёмнике. Составляем прозрачный заказ-наряд с фиксированной ценой до начала ремонта.
+            </p>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 flex flex-col justify-between hover:border-brand/40 transition-colors">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-[#252830] border border-card-border flex items-center justify-center mb-4">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl">photo_camera</span>
+            </div>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white mb-2">
+              Ремонт с фото/видеоотчётом
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Мастера выполняют регламентные работы строго по заводским нормам. Присылаем фото и видео скрытых дефектов в MAX, WhatsApp или Telegram.
+            </p>
+          </div>
+        </div>
+        <!-- Step 4 -->
+        <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 flex flex-col justify-between hover:border-brand/40 transition-colors">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-[#252830] border border-card-border flex items-center justify-center mb-4">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl">workspace_premium</span>
+            </div>
+            <h3 class="font-heading text-xl uppercase font-semibold text-white mb-2">
+              Приёмка авто и гарантия
+            </h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Демонстрируем заменённые детали, отдаём старые запчасти. Выдаём официальный акт выполненных работ с гарантией до 12 месяцев.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. REVIEWS (пересказ реальных отзывов 2ГИС; на телефонах свайп, на ПК 3 колонки) -->
+  <section class="border-t border-card-border py-14 sm:py-20 bg-charcoal" id="reviews">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 sm:mb-12">
+        <div>
+          <span class="text-xs uppercase tracking-wider text-brand font-semibold block mb-2">Доверие автовладельцев</span>
+          <h2 class="font-heading text-2xl sm:text-4xl uppercase font-bold text-white">
+            Что клиенты пишут об «АвтоРае»
+          </h2>
+        </div>
+        <a class="inline-flex items-center gap-3 bg-card-bg border border-card-border hover:border-brand/40 px-4 py-2.5 rounded-card w-fit transition-colors" href="https://2gis.ru/yoshkarola/firm/70000001075184804/tab/reviews" rel="noopener" target="_blank">
+          <span class="font-heading text-2xl font-bold text-brand">4.9 ★</span>
+          <div class="text-xs text-subtle-gray">
+            <span class="text-white font-medium block">35 оценок в 2ГИС</span>
+            Читать все отзывы →
+          </div>
+        </a>
+      </div>
+
+      <!-- Mobile Swipe Hint -->
+      <div class="flex items-center justify-between text-xs text-subtle-gray mb-3 md:hidden">
+        <span>Листайте влево →</span>
+      </div>
+
+      <div class="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2">
+        <div class="min-w-[86%] sm:min-w-[70%] md:min-w-0 snap-center bg-card-bg border border-card-border rounded-card p-5 sm:p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl">troubleshoot</span>
+            <span class="text-xs text-subtle-gray">по отзывам в 2ГИС</span>
+          </div>
+          <h3 class="font-heading text-xl uppercase font-semibold text-white mb-2">Ищут причину, а не гадают</h3>
+          <p class="text-sm text-gray-300 leading-relaxed">Клиенты отмечают проверку на вибростенде и диагностику электроники вместо ремонта наугад.</p>
+        </div>
+        <div class="min-w-[86%] sm:min-w-[70%] md:min-w-0 snap-center bg-card-bg border border-card-border rounded-card p-5 sm:p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl">task_alt</span>
+            <span class="text-xs text-subtle-gray">по отзывам в 2ГИС</span>
+          </div>
+          <h3 class="font-heading text-xl uppercase font-semibold text-white mb-2">Несколько задач за один визит</h3>
+          <p class="text-sm text-gray-300 leading-relaxed">Масло, подвеску и другие работы часто успевают сделать в одном месте и в один день.</p>
+        </div>
+        <div class="min-w-[86%] sm:min-w-[70%] md:min-w-0 snap-center bg-card-bg border border-card-border rounded-card p-5 sm:p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl">local_gas_station</span>
+            <span class="text-xs text-subtle-gray">по отзывам в 2ГИС</span>
+          </div>
+          <h3 class="font-heading text-xl uppercase font-semibold text-white mb-2">Опыт с дизелями и форсунками</h3>
+          <p class="text-sm text-gray-300 leading-relaxed">Пишут про чистку сажевого фильтра и мойку форсунок: после них машина едет заметно лучше.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. INTERACTIVE LEAD FORM WITH PHONE MOCKUP (Тап-выбор нескольких услуг + телефончик) -->
+  <section class="border-t border-card-border py-14 sm:py-20 bg-charcoal" id="order-service">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-10 lg:p-12 shadow-xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- Left Column: Form -->
+          <div class="lg:col-span-7 space-y-5 sm:space-y-6">
+            <div>
+              <span class="text-xs uppercase tracking-wider text-brand font-semibold block mb-1.5">Быстрая запись с телефона</span>
+              <h2 class="font-heading text-2xl sm:text-4xl uppercase font-bold text-white mb-2">
+                Соберите заявку мастеру за минуту
+              </h2>
+              <p class="text-xs sm:text-base text-gray-300">
+                Отметьте нужные услуги кнопками ниже и заполните поля. Готовый текст останется отправить мастеру в MAX или WhatsApp.
+              </p>
+            </div>
+
+            <!-- Multi-Select Touch Chips for Mobile Users -->
+            <div>
+              <span class="block text-xs font-medium text-subtle-gray uppercase tracking-wider mb-2">Что нужно сделать? (можно выбрать несколько):</span>
+              <div class="flex flex-wrap gap-2">
+                <button type="button" aria-pressed="false" data-topic="Комплексная диагностика на вибростенде (от 700 ₽)" onclick="toggleTopicChip(this)" class="topic-chip text-xs bg-[#15161A] hover:border-brand/60 border border-card-border text-gray-200 px-3.5 py-2 rounded-xl transition-all active:scale-95">
+                  + Вибростенд (от 700 ₽)
+                </button>
+                <button type="button" aria-pressed="false" data-topic="Компьютерная диагностика (от 500 ₽)" onclick="toggleTopicChip(this)" class="topic-chip text-xs bg-[#15161A] hover:border-brand/60 border border-card-border text-gray-200 px-3.5 py-2 rounded-xl transition-all active:scale-95">
+                  + Горит Check Engine
+                </button>
+                <button type="button" aria-pressed="false" data-topic="Ремонт ходовой (от 500 ₽)" onclick="toggleTopicChip(this)" class="topic-chip text-xs bg-[#15161A] hover:border-brand/60 border border-card-border text-gray-200 px-3.5 py-2 rounded-xl transition-all active:scale-95">
+                  + Ремонт ходовой
+                </button>
+                <button type="button" aria-pressed="false" data-topic="Аппаратная замена масла в АКПП (от 2 000 ₽)" onclick="toggleTopicChip(this)" class="topic-chip text-xs bg-[#15161A] hover:border-brand/60 border border-card-border text-gray-200 px-3.5 py-2 rounded-xl transition-all active:scale-95">
+                  + Замена масла АКПП
+                </button>
+                <button type="button" aria-pressed="false" data-topic="Ремонт ДВС / промывка форсунок (от 3 000 ₽)" onclick="toggleTopicChip(this)" class="topic-chip text-xs bg-[#15161A] hover:border-brand/60 border border-card-border text-gray-200 px-3.5 py-2 rounded-xl transition-all active:scale-95">
+                  + ДВС и форсунки
+                </button>
+                <button type="button" aria-pressed="false" data-topic="Чистка сажевого фильтра DPF" onclick="toggleTopicChip(this)" class="topic-chip text-xs bg-[#15161A] hover:border-brand/60 border border-card-border text-gray-200 px-3.5 py-2 rounded-xl transition-all active:scale-95">
+                  + Сажевый фильтр DPF
+                </button>
+                <button type="button" aria-pressed="false" data-topic="Кузовной ремонт и покраска (от 5 000 ₽)" onclick="toggleTopicChip(this)" class="topic-chip text-xs bg-[#15161A] hover:border-brand/60 border border-card-border text-gray-200 px-3.5 py-2 rounded-xl transition-all active:scale-95">
+                  + Кузов и покраска
+                </button>
+              </div>
+            </div>
+
+            <form class="space-y-4" id="master-chat-form" onsubmit="handlePhoneSubmit(event)">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                <div>
+                  <label class="block text-xs font-medium text-subtle-gray uppercase tracking-wider mb-1.5" for="car-model">Марка и модель авто</label>
+                  <input class="w-full bg-[#15161A] border border-card-border focus:border-brand focus:ring-1 focus:ring-brand rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-500 transition-colors" id="car-model" oninput="updateLivePhonePreview()" placeholder="Например: Kia Rio, Skoda Octavia..." required="" type="text"/>
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-subtle-gray uppercase tracking-wider mb-1.5" for="phone-number">Ваш телефон</label>
+                  <input autocomplete="tel" class="w-full bg-[#15161A] border border-card-border focus:border-brand focus:ring-1 focus:ring-brand rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-500 transition-colors" id="phone-number" inputmode="tel" oninput="formatPhoneInput(this); updateLivePhonePreview()" pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" title="Введите номер полностью: +7 (999) 000-00-00" placeholder="+7 (999) 000-00-00" required="" type="tel"/>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-subtle-gray uppercase tracking-wider mb-1.5" for="user-message">Сообщение мастеру</label>
+                <textarea class="w-full bg-[#15161A] border border-card-border focus:border-brand focus:ring-1 focus:ring-brand rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 transition-colors resize-none" id="user-message" oninput="updateLivePhonePreview()" placeholder="Опишите симптомы или выберите кнопки выше..." rows="3"></textarea>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-3 pt-1">
+                <button class="flex-1 bg-brand hover:bg-brand-hover active:scale-[0.99] text-black font-bold uppercase text-sm py-4 px-6 rounded-xl transition-all tracking-wide flex items-center justify-center gap-2 shadow-[0_8px_25px_rgba(255,214,0,0.2)]" type="submit">
+                  <span aria-hidden="true" class="material-symbols-outlined text-lg">send</span>
+                  <span>Подготовить заявку</span>
+                </button>
+                <a class="bg-[#15161A] hover:border-brand/60 border border-card-border text-white font-semibold text-xs uppercase px-5 py-4 rounded-xl transition-colors flex items-center justify-center gap-2 whitespace-nowrap" href="https://max.ru/u/f9LHodD0cOICzUKAzID4bwpirEmxcAWHRI9Ustr6lE4d8GrX6L0LTCjToiI" rel="noopener" target="_blank">
+                  <span class="w-2 h-2 rounded-full bg-brand"></span>
+                  <span>Перейти в MAX</span>
+                </a>
+              </div>
+
+              <div class="text-xs text-subtle-gray text-center sm:text-left">
+                Фиксируем цену до начала работ
+              </div>
+            </form>
+          </div>
+
+          <!-- Right Column: Smartphone Mockup ("Телефончик" с логотипом АвтоРай) -->
+          <div class="lg:col-span-5 flex justify-center">
+            <!-- Outer Phone Bezel -->
+            <div class="w-full max-w-[325px] sm:w-[335px] h-[480px] sm:h-[540px] bg-[#0B0B0D] rounded-[42px] p-[11px] sm:p-[12px] shadow-[0_25px_60px_rgba(0,0,0,0.75)] border border-[#262830] relative flex flex-col select-none">
+              
+              <!-- Inner Screen -->
+              <div class="w-full h-full bg-[#161618] rounded-[32px] flex flex-col overflow-hidden relative border border-[#222327]">
+                
+                <!-- Phone Header (matching screenshot style + real АвтоРай logo) -->
+                <div class="px-4 sm:px-5 pt-4 sm:pt-5 pb-3 border-b border-[#26272B] flex items-center justify-between bg-[#191A1D]">
+                  <div class="flex items-center gap-3">
+                    <div class="relative shrink-0">
+                      <img alt="АвтоРай" class="w-10 h-10 rounded-full object-cover scale-105 border border-brand/70" src="logo-autorai.jpg"/>
+                                          </div>
+                    <div class="flex flex-col">
+                      <span class="text-white font-bold text-[15px] leading-tight tracking-tight">АвтоРай</span>
+                      <span class="text-[#8E8E93] text-xs leading-tight mt-0.5">чат с мастером</span>
+                    </div>
+                  </div>
+                  <a class="text-[11px] bg-[#25262C] hover:bg-brand hover:text-black text-gray-200 px-2.5 py-1 rounded-full transition-colors font-medium" href="tel:+79027358386">
+                    📞 Звонок
+                  </a>
+                </div>
+
+                <!-- Phone Messages Body -->
+                <div class="flex-1 p-4 flex flex-col overflow-y-auto space-y-3" id="phone-screen-body">
+                  
+                  <!-- Default Empty State (centered like screenshot) -->
+                  <div class="text-center px-6 my-auto transition-opacity duration-200" id="phone-empty-state">
+                    <p class="text-[#8E8E93] text-[15px] leading-snug font-normal">
+                      Здесь появится ваше<br/>сообщение мастеру
+                    </p>
+                  </div>
+
+                  <!-- Live Draft / Sent Messages Container -->
+                  <div class="hidden flex-col space-y-3 w-full mt-auto" id="phone-messages-list">
+                    <!-- Dynamic live preview bubble while typing -->
+                    <div class="hidden self-end max-w-[88%] bg-brand text-black rounded-2xl rounded-br-sm px-4 py-3 text-xs leading-relaxed shadow-md animate-msg" id="phone-live-draft">
+                      <div class="text-[10px] font-bold uppercase tracking-wider text-black/60 mb-1" id="draft-status-label">Набор сообщения...</div>
+                      <div class="font-medium break-words space-y-1" id="draft-text-content"></div>
+                    </div>
+
+                    <!-- Sent messages history -->
+                    <div class="flex flex-col space-y-3 w-full" id="phone-sent-history"></div>
+                  </div>
+
+                </div>
+
+                <!-- Subtle Phone Bottom Bar -->
+                <div class="px-4 py-3 bg-[#191A1D] border-t border-[#26272B] flex items-center justify-between gap-2">
+                  <span class="text-[11px] text-[#8E8E93] truncate" id="phone-footer-status">Сернурский тракт, 4Б/1</span>
+                  <a class="text-[11px] font-semibold text-brand hover:underline shrink-0" href="https://max.ru/u/f9LHodD0cOICzUKAzID4bwpirEmxcAWHRI9Ustr6lE4d8GrX6L0LTCjToiI" rel="noopener" target="_blank">
+                    Чат в MAX →
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CONTACTS & MAP -->
+  <section class="border-t border-card-border py-14 sm:py-20 bg-charcoal" id="contacts">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-8 sm:mb-12">
+        <span class="text-xs uppercase tracking-wider text-brand font-semibold block mb-2">Локация и связь</span>
+        <h2 class="font-heading text-2xl sm:text-4xl uppercase font-bold text-white">
+          Контакты автосервиса «АвтоРай»
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+        <!-- Contact Cards -->
+        <div class="lg:col-span-5 space-y-4 sm:space-y-6">
+          <div class="bg-card-bg border border-card-border rounded-card p-5 sm:p-6 space-y-5 sm:space-y-6">
+            <!-- Address -->
+            <div class="flex items-start gap-4">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl mt-0.5">location_on</span>
+              <div>
+                <span class="text-xs text-subtle-gray uppercase tracking-wider block mb-1">Адрес</span>
+                <div class="text-white font-medium">г. Йошкар-Ола, Сернурский тракт, 4Б/1</div>
+                <div class="text-xs text-subtle-gray mt-0.5">2 бокс (справа от въезда) • Парковка для клиентов</div>
+              </div>
+            </div>
+            <!-- Phones -->
+            <div class="flex items-start gap-4">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl mt-0.5">call</span>
+              <div>
+                <span class="text-xs text-subtle-gray uppercase tracking-wider block mb-1">Телефоны</span>
+                <a class="text-white font-medium block hover:text-brand transition-colors" href="tel:+79027358386">+7 (902) 735-83-86</a>
+                <a class="text-subtle-gray block hover:text-brand transition-colors text-sm mt-0.5" href="tel:+79278780896">+7 (927) 878-08-96</a>
+              </div>
+            </div>
+            <!-- Schedule -->
+            <div class="flex items-start gap-4">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-2xl mt-0.5">schedule</span>
+              <div>
+                <span class="text-xs text-subtle-gray uppercase tracking-wider block mb-1">Режим работы</span>
+                <div class="text-white font-medium">Понедельник — Суббота: с 09:00 до 19:00</div>
+                <div class="text-xs text-subtle-gray mt-0.5">Воскресенье — выходной (заявки принимаем в мессенджерах)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Messengers (включая MAX) -->
+          <div class="grid grid-cols-3 gap-2.5 sm:gap-3">
+            <a class="bg-brand hover:bg-brand-hover active:scale-95 text-black p-3.5 rounded-xl flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-all" href="https://max.ru/u/f9LHodD0cOICzUKAzID4bwpirEmxcAWHRI9Ustr6lE4d8GrX6L0LTCjToiI" rel="noopener" target="_blank">
+              <span aria-hidden="true" class="material-symbols-outlined text-base">forum</span>
+              MAX
+            </a>
+            <a class="bg-card-bg border border-card-border hover:border-brand/40 active:scale-95 text-white p-3.5 rounded-xl flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wider transition-all" href="https://wa.me/79027358386" rel="noopener" target="_blank">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-sm">chat</span>
+              WhatsApp
+            </a>
+            <a class="bg-card-bg border border-card-border hover:border-brand/40 active:scale-95 text-white p-3.5 rounded-xl flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wider transition-all" href="https://t.me/+79027358386" rel="noopener" target="_blank">
+              <span aria-hidden="true" class="material-symbols-outlined text-brand text-sm">send</span>
+              Telegram
+            </a>
+          </div>
+        </div>
+
+        <!-- Clean Map -->
+        <div class="lg:col-span-7 bg-card-bg border border-card-border rounded-card p-2.5 sm:p-3 relative overflow-hidden">
+          <div class="relative w-full h-[300px] sm:h-[380px] rounded-xl overflow-hidden bg-[#15161A]">
+            <iframe class="w-full h-full border-0" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=47.9476%2C56.6483%2C47.9627%2C56.6542&amp;layer=mapnik&amp;marker=56.65126%2C47.95515" title="АвтоРай на карте: Йошкар-Ола, Сернурский тракт, 4Б/1"></iframe>
+          </div>
+          <a class="mt-2.5 bg-brand hover:bg-brand-hover text-black px-4 py-3 rounded-lg text-xs font-bold uppercase flex items-center justify-center gap-1.5 transition-colors" href="https://yandex.ru/maps/?rtext=~56.65126%2C47.95515&amp;rtt=auto" rel="noopener" target="_blank">
+            <span aria-hidden="true" class="material-symbols-outlined text-sm">navigation</span>
+            Построить маршрут
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-card-border bg-[#0E0F12] py-12 sm:py-14">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 sm:mb-12">
+      <!-- Col 1 -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <img alt="АвтоРай" class="w-10 h-10 rounded-full object-cover scale-105 border border-brand" src="logo-autorai.jpg"/>
+          <span class="font-heading text-xl font-bold text-white uppercase">Авто<span class="text-brand">Рай</span></span>
+        </div>
+        <p class="text-xs text-subtle-gray leading-relaxed">
+          Профессиональный мультибрендовый технический центр в г. Йошкар-Ола. Комплексный ремонт, слесарные работы и высокоточная диагностика легковых автомобилей.
+        </p>
+      </div>
+      <!-- Col 2 -->
+      <div class="space-y-3">
+        <span class="text-xs font-semibold text-white uppercase tracking-wider block">Разделы</span>
+        <div class="flex flex-col gap-2 text-xs text-subtle-gray">
+          <a class="hover:text-brand transition-colors" href="#scanner">Интерактивная диагностика</a>
+          <a class="hover:text-brand transition-colors" href="#advantages">Преимущества</a>
+          <a class="hover:text-brand transition-colors" href="#services">Услуги и цены</a>
+          <a class="hover:text-brand transition-colors" href="#process">Как мы работаем</a>
+          <a class="hover:text-brand transition-colors" href="#reviews">Отзывы клиентов</a>
+          <a class="hover:text-brand transition-colors" href="#contacts">Контакты</a>
+        </div>
+      </div>
+      <!-- Col 3 -->
+      <div class="space-y-3">
+        <span class="text-xs font-semibold text-white uppercase tracking-wider block">Контакты</span>
+        <div class="flex flex-col gap-2 text-xs text-subtle-gray">
+          <span>г. Йошкар-Ола, Сернурский тракт, 4Б/1 (Бокс 2)</span>
+          <a class="hover:text-brand text-white font-medium transition-colors" href="tel:+79027358386">+7 (902) 735-83-86</a>
+          <a class="hover:text-brand text-white font-medium transition-colors" href="tel:+79278780896">+7 (927) 878-08-96</a>
+          <span>Пн–Сб 09:00–19:00</span>
+        </div>
+      </div>
+      <!-- Col 4 -->
+      <div class="space-y-3">
+        <span class="text-xs font-semibold text-white uppercase tracking-wider block">Мессенджеры</span>
+        <div class="flex flex-wrap gap-2.5">
+          <a class="bg-brand hover:bg-brand-hover text-black font-bold text-xs px-3.5 py-2 rounded-lg transition-colors" href="https://max.ru/u/f9LHodD0cOICzUKAzID4bwpirEmxcAWHRI9Ustr6lE4d8GrX6L0LTCjToiI" rel="noopener" target="_blank">MAX</a>
+          <a class="bg-card-bg border border-card-border hover:border-brand/40 text-xs px-3.5 py-2 rounded-lg text-white transition-colors" href="https://wa.me/79027358386" rel="noopener" target="_blank">WhatsApp</a>
+          <a class="bg-card-bg border border-card-border hover:border-brand/40 text-xs px-3.5 py-2 rounded-lg text-white transition-colors" href="https://t.me/+79027358386" rel="noopener" target="_blank">Telegram</a>
+        </div>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-card-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-subtle-gray">
+      <div>© 2026 Автосервис «АвтоРай». Все права защищены.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE BOTTOM APP BAR (Закреплённый нижний бар под большой палец на телефонах) -->
+<div class="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-[#121316]/95 backdrop-blur-xl border-t border-[#2A2D35] px-3 py-2.5 shadow-[0_-10px_30px_rgba(0,0,0,0.65)]">
+  <div class="grid grid-cols-3 gap-2 max-w-md mx-auto">
+    <a class="bg-card-bg border border-card-border active:scale-95 text-white font-semibold text-xs py-3 rounded-xl flex items-center justify-center gap-1.5 transition-transform" href="tel:+79027358386">
+      <span aria-hidden="true" class="material-symbols-outlined text-brand text-base">call</span>
+      <span>Позвонить</span>
+    </a>
+    <a class="bg-card-bg border border-brand/50 active:scale-95 text-white font-bold text-xs py-3 rounded-xl flex items-center justify-center gap-1.5 transition-transform" href="https://max.ru/u/f9LHodD0cOICzUKAzID4bwpirEmxcAWHRI9Ustr6lE4d8GrX6L0LTCjToiI" rel="noopener" target="_blank">
+      <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+      <span>Чат MAX</span>
+    </a>
+    <a class="bg-brand active:scale-95 text-black font-bold text-xs uppercase py-3 rounded-xl flex items-center justify-center gap-1 transition-transform shadow-[0_4px_15px_rgba(255,214,0,0.3)]" href="#order-service">
+      <span aria-hidden="true" class="material-symbols-outlined text-base">edit_calendar</span>
+      <span>Запись</span>
+    </a>
+  </div>
+</div>
+
+<script>
+  function dismissPreloader() {
+    const preloader = document.getElementById('app-preloader');
+    if (preloader && !preloader.classList.contains('preloader-hide')) {
+      preloader.classList.add('preloader-hide');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 500);
+    }
+  }
+
+  (function initFastPreloader() {
+    const percentEl = document.getElementById('preloader-percent');
+    let start = performance.now();
+    const duration = 650;
+
+    function tick(now) {
+      const progress = Math.min(1, (now - start) / duration);
+      if (percentEl) {
+        percentEl.textContent = Math.round(progress * 100) + '%';
+      }
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        setTimeout(dismissPreloader, 80);
+      }
+    }
+    requestAnimationFrame(tick);
+    // Гарантированное открытие даже при медленном мобильном интернете
+    setTimeout(dismissPreloader, 850);
+  })();
+
+  function toggleMobileMenu() {
+    const open = !document.getElementById('mobile-drawer').classList.toggle('hidden');
+    const btn = document.getElementById('mobile-menu-btn');
+    document.getElementById('mobile-menu-icon').textContent = open ? 'close' : 'menu';
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+  }
+
+  const carNodesData = [
+    {
+      badge: 'Моторный отсек',
+      time: '~ 30–45 мин',
+      title: 'Двигатель, форсунки и компьютерная диагностика',
+      desc: 'Чтение параметров всех электронных блоков, эндоскопия цилиндров, стендовая промывка форсунок, эко-чистка и капитальный ремонт ДВС с гарантией.',
+      items: [
+        'Считывание кодов ошибок и проверка датчиков в реальном времени',
+        'Ультразвуковая и стендовая чистка топливных форсунок',
+        'Честная дефектовка без навязывания лишних запчастей'
+      ],
+      price: 'от 500 ₽',
+      shortMsg: 'Компьютерная диагностика (от 500 ₽)'
+    },
+    {
+      badge: 'Подвеска и рулевое',
+      time: '~ 20–30 мин',
+      title: 'Проверка ходовой на вибростенде и ремонт тормозов',
+      desc: 'Тестируем подвеску под реальной динамической нагрузкой. Точно находим стучащий сайлентблок, шаровую или стойку стабилизатора.',
+      items: [
+        'Проверка амортизаторов, рычагов и рулевой рейки на вибростенде',
+        'Проточка тормозных дисков без снятия со ступицы',
+        'Замена ступичных подшипников, стоек и тормозных колодок'
+      ],
+      price: 'от 700 ₽',
+      shortMsg: 'Комплексная диагностика на вибростенде (от 700 ₽)'
+    },
+    {
+      badge: 'Трансмиссия',
+      time: '~ 60–90 мин',
+      title: 'Аппаратная замена масла в АКПП, вариаторах и ДВС',
+      desc: 'Полное 100% вытеснение старой трансмиссионной жидкости через профессиональную станцию с заменой фильтра и прокладки поддона.',
+      items: [
+        'Безопасная аппаратная замена без риска для гидроблока',
+        'Масла, оригинальные фильтры и расходники в наличии на складе',
+        'Устранение пинков и рывков при переключении передач'
+      ],
+      price: 'от 2 000 ₽',
+      shortMsg: 'Аппаратная замена масла в АКПП (от 2 000 ₽)'
+    },
+    {
+      badge: 'Кузовной цех',
+      time: 'от 1 дня',
+      title: 'Кузовной ремонт, стапель и малярная камера',
+      desc: 'Восстановление заводской геометрии кузова после ДТП, ремонт бамперов, локальная и полная покраска со 100% попаданием в цвет.',
+      items: [
+        'Компьютерный подбор автоэмали и покраска без шагрени',
+        'Восстановление пластиковых деталей, порогов и крыльев',
+        'Глубокая восстановительная полировка кузова и фар'
+      ],
+      price: 'от 5 000 ₽',
+      shortMsg: 'Кузовной ремонт и покраска (от 5 000 ₽)'
+    },
+    {
+      badge: 'Выхлоп и защита',
+      time: '~ 1–3 часа',
+      title: 'Промывка сажевых фильтров DPF, сварка и антикор днища',
+      desc: 'Восстанавливаем пропускную способность сажевых фильтров и катализаторов на специализированном стенде. Сварочные работы любой сложности.',
+      items: [
+        'Стендовая гидродинамическая промывка сажевого фильтра DPF',
+        'Ремонт глушителей, переварка гофр, порогов и кронштейнов',
+        'Комплексная антикоррозийная обработка днища и арок'
+      ],
+      price: 'по запросу',
+      shortMsg: 'Чистка сажевого фильтра DPF'
+    }
+  ];
+
+  let currentCarNodeIndex = 0;
+  let selectedTopics = [];
+
+  function selectCarNode(idx) {
+    currentCarNodeIndex = idx;
+    const data = carNodesData[idx];
+
+    document.querySelectorAll('.node-hotspot').forEach((btn, i) => {
+      btn.classList.toggle('active', i === idx);
+    });
+
+    document.querySelectorAll('.node-tab').forEach((tab, i) => {
+      if (i === idx) {
+        tab.className = 'node-tab shrink-0 bg-brand text-black font-semibold text-xs py-2.5 px-3.5 sm:px-2.5 rounded-lg transition-colors text-center';
+      } else {
+        tab.className = 'node-tab shrink-0 bg-card-bg hover:bg-[#252830] text-gray-300 font-medium text-xs py-2.5 px-3.5 sm:px-2.5 rounded-lg transition-colors text-center';
+      }
+    });
+
+    document.getElementById('scanner-badge').textContent = data.badge;
+    document.getElementById('scanner-time').textContent = data.time;
+    document.getElementById('scanner-title').textContent = data.title;
+    document.getElementById('scanner-desc').textContent = data.desc;
+    document.getElementById('scanner-price').textContent = data.price;
+
+    const listEl = document.getElementById('scanner-list');
+    listEl.innerHTML = data.items.map(item =>
+      '<div class="flex items-center gap-2.5 text-xs text-gray-200">' +
+        '<span class="text-brand font-bold">✓</span>' +
+        '<span>' + escapeHtml(item) + '</span>' +
+      '</div>'
+    ).join('');
+  }
+
+  function sendScannerNodeToPhone() {
+    const data = carNodesData[currentCarNodeIndex];
+    prefillService(data.shortMsg);
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, function(m) {
+      return ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      })[m];
+    });
+  }
+
+  function formatPhoneInput(input) {
+    let digits = input.value.replace(/\D/g, '');
+    if (!digits) return;
+    if (digits[0] === '8') digits = '7' + digits.slice(1);
+    if (digits[0] !== '7') digits = '7' + digits;
+    digits = digits.slice(0, 11);
+
+    let formatted = '+7';
+    if (digits.length > 1) formatted += ' (' + digits.slice(1, 4);
+    if (digits.length > 4) formatted += ') ' + digits.slice(4, 7);
+    if (digits.length > 7) formatted += '-' + digits.slice(7, 9);
+    if (digits.length > 9) formatted += '-' + digits.slice(9, 11);
+    input.value = formatted;
+  }
+
+  function prefillService(topic) {
+    if (!selectedTopics.includes(topic)) {
+      toggleTopicChip(document.querySelector('.topic-chip[data-topic="' + topic + '"]'));
+    }
+  }
+
+  function toggleTopicChip(btn) {
+    const topic = btn.dataset.topic;
+    const idx = selectedTopics.indexOf(topic);
+    if (idx > -1) {
+      selectedTopics.splice(idx, 1);
+    } else {
+      selectedTopics.push(topic);
+    }
+    btn.setAttribute('aria-pressed', idx === -1);
+
+    // Only the "Выбрано:" line is rewritten, so the symptoms the visitor typed survive.
+    const msgInput = document.getElementById('user-message');
+    const ownText = msgInput.value.replace(/^Выбрано:.*\n?/, '');
+    msgInput.value = (selectedTopics.length ? 'Выбрано: ' + selectedTopics.join(', ') + '\n' : '') + ownText;
+    updateLivePhonePreview();
+  }
+
+  function updateLivePhonePreview() {
+    const car = document.getElementById('car-model').value.trim();
+    const phone = document.getElementById('phone-number').value.trim();
+    const msg = document.getElementById('user-message').value.trim();
+
+    const emptyState = document.getElementById('phone-empty-state');
+    const messagesList = document.getElementById('phone-messages-list');
+    const liveDraft = document.getElementById('phone-live-draft');
+    const draftContent = document.getElementById('draft-text-content');
+    const sentHistory = document.getElementById('phone-sent-history');
+    const screenBody = document.getElementById('phone-screen-body');
+
+    const hasSentMessages = sentHistory && sentHistory.children.length > 0;
+    const hasDraftInput = Boolean(car || phone || msg);
+
+    if (!hasDraftInput && !hasSentMessages) {
+      emptyState.classList.remove('hidden');
+      messagesList.classList.add('hidden');
+      messagesList.classList.remove('flex');
+      liveDraft.classList.add('hidden');
+      return;
+    }
+
+    emptyState.classList.add('hidden');
+    messagesList.classList.remove('hidden');
+    messagesList.classList.add('flex');
+
+    if (hasDraftInput) {
+      liveDraft.classList.remove('hidden');
+      let lines = [];
+      if (car) lines.push('<div><strong>Авто:</strong> ' + escapeHtml(car) + '</div>');
+      if (msg) lines.push('<div>' + escapeHtml(msg) + '</div>');
+      if (phone) lines.push('<div class="text-[11px] opacity-80 pt-0.5">📞 ' + escapeHtml(phone) + '</div>');
+      draftContent.innerHTML = lines.join('');
+    } else {
+      liveDraft.classList.add('hidden');
+    }
+
+    screenBody.scrollTop = screenBody.scrollHeight;
+  }
+
+  // shortcut: заявка не уходит на сервер, посетитель отправляет её сам; заменить на отправку через бэкенд, когда появится хостинг.
+  async function handlePhoneSubmit(event) {
+    event.preventDefault();
+    const carInput = document.getElementById('car-model');
+    const phoneInput = document.getElementById('phone-number');
+    const msgInput = document.getElementById('user-message');
+
+    const car = carInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const msg = msgInput.value.trim() || 'Заявка на диагностику / консультацию';
+    const requestText = 'Заявка с сайта АвтоРай\nАвто: ' + car + '\nТелефон: ' + phone + '\n' + msg;
+
+    let copied = false;
+    try {
+      await navigator.clipboard.writeText(requestText);
+      copied = true;
+    } catch (e) {
+      // Буфер недоступен (http, старый браузер): посетитель скопирует текст вручную.
+    }
+
+    document.getElementById('phone-empty-state').classList.add('hidden');
+    const messagesList = document.getElementById('phone-messages-list');
+    messagesList.classList.remove('hidden');
+    messagesList.classList.add('flex');
+    document.getElementById('phone-live-draft').classList.add('hidden');
+
+    const bubble = document.createElement('div');
+    bubble.className = 'self-end max-w-[88%] bg-brand text-black rounded-2xl rounded-br-sm px-4 py-3 text-xs leading-relaxed shadow-md animate-msg select-text';
+    bubble.innerHTML =
+      '<div class="font-semibold mb-0.5">🚗 ' + escapeHtml(car) + '</div>' +
+      '<div class="mb-1">' + escapeHtml(msg) + '</div>' +
+      '<div class="text-[11px] opacity-80">📞 ' + escapeHtml(phone) + '</div>';
+
+    const buttonClass = 'font-bold text-[11px] px-3 py-1.5 rounded-lg transition-colors';
+    const handoff = document.createElement('div');
+    handoff.className = 'self-start max-w-[88%] bg-[#25262C] border border-[#32343C] text-white rounded-2xl rounded-bl-sm px-4 py-3 text-xs leading-relaxed shadow-md animate-msg';
+    handoff.innerHTML =
+      '<div class="text-brand font-semibold text-[11px] mb-1">Заявка ещё не отправлена</div>' +
+      '<div class="text-gray-200">' + (copied ? 'Текст скопирован: вставьте его в чат MAX' : 'Скопируйте текст выше и вставьте его в чат MAX') + ' или откройте WhatsApp с готовым сообщением.</div>' +
+      '<div class="mt-2.5 flex flex-wrap gap-1.5">' +
+        '<a href="https://max.ru/u/f9LHodD0cOICzUKAzID4bwpirEmxcAWHRI9Ustr6lE4d8GrX6L0LTCjToiI" target="_blank" rel="noopener" class="' + buttonClass + ' bg-brand text-black hover:bg-brand-hover">MAX</a>' +
+        '<a href="https://wa.me/79027358386?text=' + encodeURIComponent(requestText) + '" target="_blank" rel="noopener" class="' + buttonClass + ' bg-[#32343C] text-white">WhatsApp</a>' +
+        '<a href="tel:+79027358386" class="' + buttonClass + ' bg-[#32343C] text-white">Позвонить</a>' +
+      '</div>';
+
+    const sentHistory = document.getElementById('phone-sent-history');
+    sentHistory.append(bubble, handoff);
+
+    carInput.value = '';
+    phoneInput.value = '';
+    msgInput.value = '';
+    selectedTopics = [];
+    document.querySelectorAll('.topic-chip').forEach(el => el.setAttribute('aria-pressed', 'false'));
+
+    const screenBody = document.getElementById('phone-screen-body');
+    screenBody.scrollTop = screenBody.scrollHeight;
+    // На телефоне окно чата находится под формой.
+    screenBody.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+</script>
+</body>
+</html>
